@@ -15,3 +15,7 @@ class UserCreateForm(FlaskForm):
     password1 = PasswordField('비밀번호', validators =[DataRequired('비밀번호를 입력해주세요.'),EqualTo('password2','비밀번호가 일치하지 않습니다.')])
     password2 = PasswordField('비밀번호확인', validators = [DataRequired('같은 비밀번호를 다시 입력해주세요.')])
     email = EmailField('이메일', validators = [DataRequired('답변을 받으실 이메일을 입력해주세요.'),Email()])
+
+class UserLoginForm(FlaskForm):
+    username = StringField('사용자이름', validators=[DataRequired(), Length(min=3, max=25)])
+    password = PasswordField('비밀번호', validators=[DataRequired()])
